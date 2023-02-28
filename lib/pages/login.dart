@@ -8,6 +8,8 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  String Name='';
+
   @override
   Widget build(BuildContext context) {
     String name = "";
@@ -52,16 +54,29 @@ class LoginState extends State<Login> {
                   const SizedBox(
                     height: 30,
                   ),
-                  InkWell(
-
+                  GestureDetector(
+                    onTap: () => print('Clicked'),
+                    child: InkWell(
+                      splashColor: Colors.amber,
+                      radius: 30,
+                      onTap: () => Navigator.pushNamed(context, MyRoutes.homeRoute),
+                      child: AnimatedContainer(
+                        duration:const Duration(seconds: 5),
+                        decoration: const BoxDecoration(
+                          color: Colors.deepPurpleAccent,
+                          borderRadius: BorderRadius.all(Radius.circular(5),
+                          ),
+                        ),
+                        child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 15, horizontal: 30),
+                            child: Text(
+                              'Login',
+                              style: TextStyle(fontSize: 20),
+                            )),
+                      ),
+                    ),
                   )
-                  /*OutlinedButton(
-                    style: btnProp,
-                    onPressed: () {
-                      Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    },
-                    child: const Text('Login'),
-                  ),*/
                 ],
               ),
             ),
